@@ -1,0 +1,41 @@
+To run the interaction cell, navigate to the folder and run the following in terminal:-
+Compilation:-
+    >> make (this will compile all the required files and generate an executable with name "game".)
+Execution:-
+    >>./game (for running printing stderr values on terminal.)
+    >>./game 2>stderr.txt (for getting the stderr values in a different file.)
+
+After start of the program, the first option will be to choose the interpretation which should be followed for the move operations as discussed in the class.
+User can choose from 2 interpretations which are described there and proceed. 
+This is taken as an stdin input and must be taken care of while running through the automated grader.
+    
+
+Files included:
+1. scan.flex: flex scanner for token generation.
+2. parse.y: bison parser for parsing the tokens.
+3. 2048.h: Header file with declarations of Tiles class and Board class along with their functions.
+4. Board.cpp: Definition of Board class functions.
+5. Tiles.cpp: Definition of Tiles class functions.
+6. main.cpp: The driver function for the program.
+7. makefile: Compiling the whole project in one go.
+
+As there is some inconsistency in some versions for flex, bison and g++, I am listing the versions which I used for compilation. Especially with a verbose line I used in the parse.y file. It requires the version of bison to be above 3.7. 
+
+Versions Used:
+1. flex: lex 2.5.35 Apple(flex-32)
+2. bison: bison (GNU Bison) 3.7.6
+3. g++: Apple clang version 12.0.0 (clang-1200.0.32.27)
+ 
+ 
+Assumptions used in assignment:
+1. Variable name only contains english alphabets.
+2. In case a valid move command doesn't change board state, it will be considered a successful move but no random tile will be added.
+3. For empty tile,
+    	a) No name can be assigned.
+    	b) The value query return 0.
+4. If a tile is assigned 0 value, then the tile is destroyed along with assigned names.
+5. Outputs in the stderr:-
+	a) Moves, naming with success and assignment with success: board state
+	b) Successful query: value of tile
+	c) Any error (syntactic or logical) : -1
+ 
